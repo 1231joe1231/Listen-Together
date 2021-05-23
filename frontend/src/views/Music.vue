@@ -196,7 +196,7 @@
                 ></mu-text-field>
                 <br />
                 <div
-                  style="color: white; display: flex; justify-content: space-evenly"
+                  style="color: white; display: flex; justify-content: space-evenly; margin-bottom: 10px"
                 >
                   <mu-radio
                     :value="'wy'"
@@ -240,26 +240,32 @@
               <div style="padding: 10px 0">
                 <mu-divider></mu-divider>
                 <div style="padding: 10px 0">
-                  <mu-chip
+                  <!-- <mu-chip
                     style="margin: 3px"
                     color="rgba(0, 150, 136, 0.5)"
                     @click="openPictureSearch = !openPictureSearch"
                   >
                     搜索图片
+                  </mu-chip> -->
+                  <mu-chip
+                    style="margin: 3px"
+                    color="rgba(0, 150, 136, 0.5)"
+                  >
+                    单曲模式
                   </mu-chip>
                   <mu-chip
                     style="margin: 3px"
                     color="rgba(0, 150, 136, 0.5)"
                     @click="musicSkipVote"
                   >
-                    投票切歌
+                    切歌
                   </mu-chip>
                   <mu-chip
                     style="margin: 3px"
                     color="rgba(0, 150, 136, 0.5)"
                     @click="openSearch = !openSearch"
                   >
-                    搜索音乐
+                    点歌
                   </mu-chip>
                   <mu-chip
                     style="margin: 3px"

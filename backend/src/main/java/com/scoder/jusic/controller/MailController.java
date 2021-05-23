@@ -48,12 +48,13 @@ public class MailController {
             sessionService.setLastMessageTime(user, System.currentTimeMillis(),houseId);
 
             StringBuilder content = new StringBuilder()
-                    .append(user)
-                    .append("\n\n\n\n")
-                    .append(houseContainer.get(user.getHouseId()))
-                    .append("\n\n\n\n")
+                    // .append(user)
+                    // .append("\n\n\n\n")
+                    // .append(houseContainer.get(user.getHouseId()))
+                    // .append("\n\n\n\n")
                     .append(chat.getContent());
-            boolean rs = mailService.sendServerJ("一起听歌有人@你了[远方:"+user.getRemoteAddress() + ":"+user.getNickName()+"]",content.toString());
+            // boolean rs = mailService.sendServerJ("一起听歌有人@你了[远方:"+user.getRemoteAddress() + ":"+user.getNickName()+"]",content.toString());
+            boolean rs = mailService.sendServerJ(content.toString());
             if(!rs){
                 boolean result = mailService.sendSimpleMail("music.scoder.club@管理员[" + user.getRemoteAddress() + "]", content.toString());
                 if (result) {
