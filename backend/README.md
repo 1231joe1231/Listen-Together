@@ -1,3 +1,24 @@
+## 会员歌曲相关
+
+后面还是更新到后端了，api音乐端看不懂。。。
+已经部署上去，欢迎过来测试。
+
+接口如下：
+
+1.网易云音乐手机登录
+  http://www.alang.run:8080/netease/loginByPhone?phone=手机号&pwd=密码
+  登录成功会返回cookie，后端也自动设置cookie,如果不想登录且已知cookie,也可以使用第4个接口，直接设置cookie
+  
+2.网易云音乐邮箱登录
+  http://www.alang.run:8080/netease/loginByEmail?email=邮箱&pwd=密码
+  登录成功会返回cookie，后端也自动设置cookie,如果不想登录且已知cookie,也可以使用第4个接口，直接设置cookie
+
+3.网易云音乐刷新登录状态
+  http://www.alang.run:8080/netease/loginRefresh
+
+4.网易云音乐设置cookie
+  http://www.alang.run:8080/netease/setCookie?cookie=xxx
+
 ## 项目背景
 
 此版本是多房间版，在jusic-serve的基础上[Jusic-serve](https://github.com/JumpAlang/Jusic-serve)
