@@ -195,7 +195,9 @@
                   class="width-size-100 chat-message"
                 ></mu-text-field>
                 <br />
-                <div style="color: white">
+                <div
+                  style="color: white; display: flex; justify-content: space-evenly"
+                >
                   <mu-radio
                     :value="'wy'"
                     v-model="sourceChat"
@@ -239,22 +241,39 @@
                 <mu-divider></mu-divider>
                 <div style="padding: 10px 0">
                   <mu-chip
+                    style="margin: 3px"
                     color="rgba(0, 150, 136, 0.5)"
                     @click="openPictureSearch = !openPictureSearch"
                   >
                     搜索图片
                   </mu-chip>
                   <mu-chip
+                    style="margin: 3px"
                     color="rgba(0, 150, 136, 0.5)"
                     @click="musicSkipVote"
                   >
                     投票切歌
                   </mu-chip>
                   <mu-chip
+                    style="margin: 3px"
                     color="rgba(0, 150, 136, 0.5)"
                     @click="openSearch = !openSearch"
                   >
                     搜索音乐
+                  </mu-chip>
+                  <mu-chip
+                    style="margin: 3px"
+                    color="rgba(0, 150, 136, 0.5)"
+                    @click="refreshNeteaseLoginToken"
+                  >
+                    刷新Token
+                  </mu-chip>
+                  <mu-chip
+                    style="margin: 3px"
+                    color="rgba(0, 150, 136, 0.5)"
+                    @click="refreshNeteaseLoginStatus"
+                  >
+                    刷新登录
                   </mu-chip>
                 </div>
                 <!-- <p>交流QQ群:1029454474,欢迎过来唠嗑。</p>
@@ -1072,6 +1091,15 @@ export default {
 
       //console.log(this.secondUrl);
       //console.log("第二首");
+    },
+    refreshNeteaseLoginToken: function () {
+      window.open(
+        "http://13.70.62.118:8080/netease/loginByPhone?phone=13818010083&pwd=991231kk",
+        "_blank"
+      );
+    },
+    refreshNeteaseLoginStatus: function () {
+      window.open("http://13.70.62.118:8080/netease/loginRefresh", "_blank");
     },
   },
   watch: {
