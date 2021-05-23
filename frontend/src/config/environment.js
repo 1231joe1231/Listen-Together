@@ -4,14 +4,14 @@
  * @type {string}
  */
 
-let baseUrl = 'http://127.0.0.1';
+let baseUrl = 'http://13.70.62.118';
 
 if (process.env.NODE_ENV === "development") {
-    baseUrl = "http://127.0.0.1:8080";
+    baseUrl = "http://13.70.62.118:8080";
 } else if (process.env.NODE_ENV === "test") {
-    baseUrl = "http://120.24.243.237:8080";
+    baseUrl = "http://13.70.62.118:8080";
 } else if (process.env.NODE_ENV === "production") {
-    baseUrl = "http://120.24.243.237:8080";
+    baseUrl = "http://13.70.62.118:8080";
 }
 
 let isProduction = false;
