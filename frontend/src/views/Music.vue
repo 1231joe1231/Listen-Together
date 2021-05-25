@@ -1100,12 +1100,12 @@ export default {
     },
     refreshNeteaseLoginToken: function () {
       window.open(
-        "http://13.70.62.118:8080/netease/loginByPhone?phone=13818010083&pwd=991231kk",
+        "http://1.116.123.171:8080/netease/loginByPhone?phone=13818010083&pwd=991231kk",
         "_blank"
       );
     },
     refreshNeteaseLoginStatus: function () {
-      window.open("http://13.70.62.118:8080/netease/loginRefresh", "_blank");
+      window.open("http://1.116.123.171:8080/netease/loginRefresh", "_blank");
     },
   },
   watch: {
