@@ -196,7 +196,12 @@
                 ></mu-text-field>
                 <br />
                 <div
-                  style="color: white; display: flex; justify-content: space-evenly; margin-bottom: 10px"
+                  style="
+                    color: white;
+                    display: flex;
+                    justify-content: space-evenly;
+                    margin-bottom: 10px;
+                  "
                 >
                   <mu-radio
                     :value="'wy'"
@@ -247,10 +252,7 @@
                   >
                     搜索图片
                   </mu-chip> -->
-                  <mu-chip
-                    style="margin: 3px"
-                    color="rgba(0, 150, 136, 0.5)"
-                  >
+                  <mu-chip style="margin: 3px" color="rgba(0, 150, 136, 0.5)">
                     单曲模式
                   </mu-chip>
                   <mu-chip
@@ -646,7 +648,7 @@ export default {
         case "投票切歌":
           this.musicSkipVote();
           break;
-        case "设置昵称":
+        case "修改昵称":
           content = sendUtils.parseContent(instruction, chatMessage);
           if (content === "") {
             // console.log('请输入昵称', chatMessage)
