@@ -1,3 +1,6 @@
+调用接口添加永久码：http://xxxx/house/addRetainKey/永久码
+Authorization要填上你部署配置的帐号密码，默认admin 123456
+
 ## 会员歌曲相关
 
 后面还是更新到后端了，api音乐端看不懂。。。
