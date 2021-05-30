@@ -43,7 +43,7 @@ axios.interceptors.response.use(response => {
  * muse 主题
  */
 theme.add('custom-theme', {
-  primary: '#009688',
+  primary: '#ff80ab',
   secondary: colors.pinkA200,
   background: {
     default: '#263238'

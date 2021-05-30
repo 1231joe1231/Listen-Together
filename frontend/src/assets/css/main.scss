@@ -1,4 +1,8 @@
-body, table, tr, td, th {
+body,
+table,
+tr,
+td,
+th {
   color: aliceblue !important;
 }
 
@@ -49,7 +53,7 @@ body, table, tr, td, th {
 
 .chat-quick-bar {
   padding: 10px 0;
-  color: #009688;
+  color: #ff80ab;
   font-size: 14px;
 
   span {
@@ -109,11 +113,11 @@ body, table, tr, td, th {
  */
 ::-webkit-scrollbar-thumb {
   border-radius: 10px; /*滚动条的圆角*/
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-  background-color: #009688; /*滚动条的背景颜色*/
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #ff80ab; /*滚动条的背景颜色*/
 }
 
-.mu-bottom-sheet{
+.mu-bottom-sheet {
   background-color: #263238 !important;
   opacity: 0.9;
 }
@@ -135,17 +139,20 @@ body, table, tr, td, th {
     text-align: center;
   }
 
-  .mu-input-line, .mu-input-focus-line, .material-icons {
-    color: #009688 !important;
+  .mu-input-line,
+  .mu-input-focus-line,
+  .material-icons {
+    color: #ff80ab !important;
   }
 
   .search_pick_btn {
-    background-color: #009688 !important;
+    background-color: #ff80ab !important;
     display: block;
     padding: 5px 0;
     cursor: pointer;
     border-radius: 2px;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   }
 
   .search_pick_btn:hover {
@@ -158,7 +165,8 @@ body, table, tr, td, th {
     padding: 5px 0;
     cursor: not-allowed;
     border-radius: 2px;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   }
 
   .justify-content-start div {
@@ -167,7 +175,7 @@ body, table, tr, td, th {
 }
 
 .mu-pagination-item.mu-button.is-current {
-  background-color: #009688 !important;
+  background-color: #ff80ab !important;
 }
 
 .mu-snackbar {
@@ -190,87 +198,86 @@ body, table, tr, td, th {
   }
 }
 
-.mu-radio-label{
-  color:white !important;
+.mu-radio-label {
+  color: white !important;
 }
 
-.searchSource .mu-radio-label{
-  font-size:12px !important;
+.searchSource .mu-radio-label {
+  font-size: 12px !important;
 }
 
-.searchradio .mu-radio-label{
-  font-size:11px !important;
+.searchradio .mu-radio-label {
+  font-size: 11px !important;
 }
 
-.searchradio2 .mu-radio-label{
-  color:gray !important;
-  font-size:11px !important;
+.searchradio2 .mu-radio-label {
+  color: gray !important;
+  font-size: 11px !important;
 }
-#house_dialog   .mu-dialog-body {
+#house_dialog .mu-dialog-body {
   max-width: 100%;
-  max-height:100%;
+  max-height: 100%;
 }
-#searchGd   .mu-dialog-body {
+#searchGd .mu-dialog-body {
   max-width: 100%;
-  max-height:100%;
+  max-height: 100%;
 }
-#searchUser   .mu-dialog-body {
+#searchUser .mu-dialog-body {
   max-width: 100%;
-  max-height:100%;
+  max-height: 100%;
 }
-#search   .mu-dialog-body {
+#search .mu-dialog-body {
   max-width: 100%;
-  max-height:100%;
+  max-height: 100%;
 }
-#share   .mu-dialog-body {
+#share .mu-dialog-body {
   max-width: 100%;
-  max-height:100%;
+  max-height: 100%;
 }
 
-.mu-switch-label{
-  color:gray !important;;
+.mu-switch-label {
+  color: gray !important;
 }
-.mu-switch{
-  margin : 0 10px !important;
+.mu-switch {
+  margin: 0 10px !important;
 }
 
-
-.mu-dialog-title{
-  font-size:16px !important;
+.mu-dialog-title {
+  font-size: 16px !important;
 }
 
 .mu-appbar-title {
-  padding-left:8px !important;
+  padding-left: 8px !important;
+  // color: black;
 }
 // .mu-appbar{
 //   height:64px !important;
 // }
 
-
-#share .mu-card-header-title .mu-card-sub-title{
+#share .mu-card-header-title .mu-card-sub-title {
   font-size: 12px !important;
-  color:rgba(0,0,0,.57) !important;
+  color: rgba(0, 0, 0, 0.57) !important;
 }
-#share .mu-card-header-title .mu-card-title{
+#share .mu-card-header-title .mu-card-title {
   font-size: 15px !important;
-  color:black !important;
+  color: black !important;
 }
 #sharereach .mu-dialog-body {
   max-width: 100%;
-  max-height:100%;
+  max-height: 100%;
 }
-#sheet .mu-item-title{
-  color:white;
+#sheet .mu-item-title {
+  color: white;
 }
-#sheet .mu-sub-header{
-  color:gray;
+#sheet .mu-sub-header {
+  color: gray;
 }
-#share .mu-card-title-container .mu-card-sub-title{
+#share .mu-card-title-container .mu-card-sub-title {
   font-size: 12px !important;
-  word-wrap:break-word;
-  color:rgba(0,0,0,.57) !important;
+  word-wrap: break-word;
+  color: rgba(0, 0, 0, 0.57) !important;
 }
 
-#share .mu-card-title-container .mu-card-title{
-  color:black !important;
+#share .mu-card-title-container .mu-card-title {
+  color: black !important;
 }

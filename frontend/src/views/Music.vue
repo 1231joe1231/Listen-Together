@@ -58,15 +58,18 @@
                     playerTime
                     }}
                   </small>
-                  <mu-linear-progress mode="determinate" :value="progress" color="#009688"></mu-linear-progress>
-                  <mu-flex justify-content="center">
-                    <mu-flex class="flex-demo" justify-content="start"><mu-icon value="volume_up" color="teal"></mu-icon></mu-flex>
-                    <mu-flex class="flex-demo" justify-content="start" fill> <mu-slider
-                    class="demo-slider"
-                    color="#009688"
-                    v-model="volume"
-                    style="color: rgb(0, 150, 136);"
-                  ></mu-slider></mu-flex>
+                  <mu-linear-progress mode="determinate" :value="progress" color="#ff80ab"></mu-linear-progress>
+                  <mu-flex justify-content="center" align-items="center">
+                    <mu-flex class="flex-demo" justify-content="start" style="margin: 5px"><mu-icon value="volume_up" color="#ff80ab"></mu-icon></mu-flex>
+                    <!-- <mu-flex class="flex-demo" justify-content="center" fill align-items="center"> -->
+                      <mu-slider
+                        class="demo-slider"
+                        color="#ff80ab"
+                        v-model="volume"
+                        step=2
+                        style="color: #ff80ab; margin-bottom: 0px; margin-left: 5px"
+                      ></mu-slider>
+                    <!-- </mu-flex> -->
                   </mu-flex>      
                 </mu-col>
               </mu-row>
@@ -230,23 +233,23 @@
                     color="rgba(0, 150, 136, 0.5)"
                     @click="openPictureSearch = !openPictureSearch"
                   >斗图</mu-chip> -->
-                  <mu-chip style="margin-right:10px;"  color="rgba(0, 150, 136, 0.5)" @click="musicSkipVote">切歌</mu-chip>
-                  <mu-chip style="margin-right:10px;" color="rgba(0, 150, 136, 0.5)" @click="openSearch = !openSearch">点歌</mu-chip>
-                  <mu-chip style="margin-right:10px;"  color="rgba(0, 150, 136, 0.5)" @click="openSearchGd = !openSearchGd">歌单</mu-chip>
+                  <mu-chip style="margin-right:10px;"  color="#c94f7c" @click="musicSkipVote">切歌</mu-chip>
+                  <mu-chip style="margin-right:10px;" color="#c94f7c" @click="openSearch = !openSearch">点歌</mu-chip>
+                  <mu-chip style="margin-right:10px;"  color="#c94f7c" @click="openSearchGd = !openSearchGd">歌单</mu-chip>
                   <mu-chip
                     style="margin: 3px"
-                    color="rgba(0, 150, 136, 0.5)"
+                    color="#c94f7c"
                     @click="refreshNeteaseLoginToken"
                   >
                     刷新Token
                   </mu-chip>
-                  <mu-chip
+                  <!-- <mu-chip
                     style="margin: 3px"
                     color="rgba(0, 150, 136, 0.5)"
                     @click="refreshNeteaseLoginStatus"
                   >
                     刷新登录
-                  </mu-chip>
+                  </mu-chip> -->
              
              </div>
               </div>
@@ -408,17 +411,20 @@
               <!--</mu-tooltip>-->
               <!--</td>-->
               <td class="is-left">
-                <a v-if="showPickButton(scope.row.privilege)" @click="pickMusic(scope.row)">
-                  <mu-avatar size="20" slot="avatar">
-                    <img src="../assets/images/play.png" />
+                <mu-flex align-items="center">
+                  <a v-if="showPickButton(scope.row.privilege)" @click="pickMusic(scope.row)" style="display:flex; height: fit-content; margin-right: 5px">
+                    <!-- <mu-avatar size="20" slot="avatar">
+                      <img src="../assets/images/play.png" />
+                    </mu-avatar> -->
+                    <mu-icon value="play_arrow" color="#ff80ab"></mu-icon>
+                  </a>
+                  <mu-avatar size="20" slot="avatar" v-if="!showPickButton(scope.row.privilege)">
+                    <mu-tooltip content="当前音乐不能点播">
+                      <img src="../assets/images/noplay.png" />
+                    </mu-tooltip>
                   </mu-avatar>
-                </a>
-                <mu-avatar size="20" slot="avatar" v-if="!showPickButton(scope.row.privilege)">
-                  <mu-tooltip content="当前音乐不能点播">
-                    <img src="../assets/images/noplay.png" />
-                  </mu-tooltip>
-                </mu-avatar>
-                {{ scope.row.name }}
+                  {{ scope.row.name }}
+                </mu-flex>
               </td>
               <td class="is-center">{{ scope.row.artist }}</td>
            <!--    <td  class="is-center">
@@ -982,12 +988,12 @@ export default {
     openHouse: false,
     openManual:false,
     searchColumns: [
-      { title: "ID", name: "id", width: 40, align: "left" },
+      { title: "ID", name: "id", width: 70, align: "left" },
       // {title: '操作', name: 'op', align: 'center'},
       { title: "歌曲", name: "name", width: 200, align: "left" },
-      { title: "歌手", name: "artist", align: "center" },
+      { title: "歌手", name: "artist", width: 200, align: "center" },
     //  { title: "封面", name: "picture_url", align: "center" },
-      { title: "专辑", name: "album", align: "center" },
+      { title: "专辑", name: "album", width: 200, align: "center" },
       { title: "时长", name: "duration", align: "center" }
     ],
      searchColumnsGd: [

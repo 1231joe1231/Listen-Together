@@ -7,7 +7,7 @@
                         @input="updateSearchKeyword"
                         @keydown.enter="search"
                         placeholder="请输入关键字搜索..."
-                        color="#009688"
+                        color="#ff80ab"
                         class="width-size-100" style="text-align: center"></mu-text-field>
             </mu-col>
             <mu-col span="1">
