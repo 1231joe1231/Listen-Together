@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isPlay">
+    <div v-if="isPlay" @touchmove.prevent>
       <navigation
         :musichouse="musichouse"
         @openShareDialog="openShare = !openShare"
