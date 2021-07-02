@@ -1948,7 +1948,6 @@ export default {
               // });
               navigator.serviceWorker.register('/sw.js');
               Notification.requestPermission(function(result) {
-                alert(result)
                 if (result === "granted") {
                   navigator.serviceWorker.ready.then(function(registration) {
                     registration.showNotification("猪猪发消息来啦");
