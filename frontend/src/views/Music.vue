@@ -90,14 +90,14 @@
             </mu-col>
             <mu-col span="12">
               <mu-data-table
-                style="background-color: transparent;max-height:380px;overflow:auto;"
+                style="background-color: transparent;max-height:380px;overflow:auto;word-wrap: break-word;word-break: normal;"
                 :selectable="false"
                 :hover="false"
                 :columns="columns"
                 :data="pick"
               >
                 <template slot-scope="scope">
-                  <td class="is-left">
+                  <td class="is-left"  style="word-wrap: break-word;word-break: normal;">
                     <a
                       @click="removeCollect(scope.row)"
                       v-if="
@@ -105,7 +105,7 @@
                           favoriteMap[scope.row.id] != undefined
                       "
                     >
-                      <mu-icon value="favorite" size="20" color="red"></mu-icon>
+                      <mu-icon value="favorite" size="15" color="red"></mu-icon>
                     </a>
                     <a @click="collectMusic(scope.row)" v-else>
                       <mu-icon
@@ -116,7 +116,7 @@
                     </a>
                     {{ scope.$index + 1 }}
                   </td>
-                  <td class="is-left">
+                  <td class="is-left" style="word-wrap: break-word;word-break: normal;">
                     <a
                       @click="goodMusic(scope.row)"
                       v-if="scope.$index != 0 && good"
@@ -133,13 +133,13 @@
                         : scope.row.name
                     }}
                   </td>
-                  <td class="is-center">{{ scope.row.artist }}</td>
-                  <td class="is-center">
+                  <td class="is-center" style="word-wrap: break-word;word-break: normal;">{{ scope.row.artist }}</td>
+                  <td class="is-center" style="word-wrap: break-word;word-break: normal;">
                     {{ "《" + scope.row.album.name + "》" }}
                   </td>
                   <!--                                    <td class="is-center">{{scope.row.nickName + scope.row.sessionId?`[${scope.row.sessionId}]`: '[]'}}</td>-->
 
-                  <td class="is-center">
+                  <td class="is-center" style="word-wrap: break-word;word-break: normal;">
                     {{
                       isRoot || isAdmin
                         ? scope.row.nickName +
@@ -1281,10 +1281,10 @@ export default {
     isPlay: false,
     columns: [
       { title: "ID", name: "id", width: 88, align: "left" },
-      { title: "歌曲", name: "name", width: 200, align: "left" },
-      { title: "歌手", name: "calories", align: "center" },
-      { title: "专辑", name: "fat", align: "center" },
-      { title: "点歌人", name: "carbs", align: "center" },
+      { title: "歌曲", name: "name", width: 150, align: "left" },
+      { title: "歌手", name: "calories", width: 120, align: "center" },
+      { title: "专辑", name: "fat", width: 140, align: "center" },
+      { title: "点歌人", name: "carbs", width: 140, align: "center" },
     ],
     albumRotate: false,
     screenWidth: document.documentElement.clientWidth,
