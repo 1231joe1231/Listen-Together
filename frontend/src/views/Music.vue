@@ -88,7 +88,7 @@
                 </mu-col>
               </mu-row>
             </mu-col>
-            <mu-col span="12">
+            <mu-col span="12" v-on:touchmove="touchWhiteList">
               <mu-data-table
                 style="background-color: transparent;max-height:380px;overflow:auto;word-wrap: break-word;word-break: normal;"
                 :selectable="false"
@@ -1279,15 +1279,21 @@ export default {
   },
   data: () => ({
     isPlay: false,
-    columns: [
+    albumRotate: false,
+    screenWidth: document.documentElement.clientWidth,
+    columns: document.documentElement.clientWidth < 1200 ? [
       { title: "ID", name: "id", width: 88, align: "left" },
       { title: "歌曲", name: "name", width: 150, align: "left" },
       { title: "歌手", name: "calories", width: 120, align: "center" },
       { title: "专辑", name: "fat", width: 140, align: "center" },
       { title: "点歌人", name: "carbs", width: 140, align: "center" },
+    ] : [
+      { title: "ID", name: "id", width: 88, align: "left" },
+      { title: "歌曲", name: "name", width: 200, align: "left" },
+      { title: "歌手", name: "calories", align: "center" },
+      { title: "专辑", name: "fat", align: "center" },
+      { title: "点歌人", name: "carbs", align: "center" },
     ],
-    albumRotate: false,
-    screenWidth: document.documentElement.clientWidth,
     albumRotateSize: 300,
     albumRotateStyle: "",
     openSearch: false,
@@ -1949,12 +1955,15 @@ export default {
             }
             messageContent.data.images = imgList;
             this.$store.commit("pushChatData", messageContent.data);
-            if (messageContent.data.content !== "投票切歌" && messageContent.data.content !== "点歌成功") {
+            console.log(messageContent.data.content.includes("点歌 "));
+            console.log(messageContent.data.content);
+            if (messageContent.data.content !== "投票切歌" && 
+                messageContent.data.content !== "点歌成功" &&
+                !messageContent.data.content.includes("点歌 ") &&
+                !messageContent.data.content.includes("点赞")) {
               // var notification = new Notification("猪猪发消息来啦", {
               //   body: messageContent.data.content,
               // });
-              console.log(this.lastChatSentTime)
-              console.log(messageContent.data.sendTime)
               if(messageContent.data.sendTime !== this.lastChatSentTime) {
                 navigator.serviceWorker.register('/sw.js');
                 Notification.requestPermission(function(result) {
