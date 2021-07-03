@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="isPlay" @touchmove.prevent>
+    <div v-if="isPlay" v-on:touchmove="preventTouch">
       <navigation
         :musichouse="musichouse"
         @openShareDialog="openShare = !openShare"
@@ -380,7 +380,7 @@
           :key="house.id"
           @click="enterHomeHouse(house.id, house.name, house.needPwd)"
         >
-          <mu-tooltip :content="house.desc">
+          <!-- <mu-tooltip :content="house.desc"> -->
             <mu-badge
               :content="house.population ? house.population + '' : '0'"
               circle
@@ -397,7 +397,7 @@
                 {{ house.name }}
               </mu-chip>
             </mu-badge>
-          </mu-tooltip>
+          <!-- </mu-tooltip> -->
         </mu-flex>
       </mu-flex>
 
@@ -1402,8 +1402,14 @@ export default {
     favoriteMap: {},
     open: false,
     miniQrcode: "",
+    lastChatSentTime: null,
   }),
   methods: {
+    preventTouch: function(event) {
+      if (this.screenWidth > 766) {
+        event.preventDefault();
+      }
+    },
     touchWhiteList: function(event) {
       event.stopPropagation();
     },
@@ -1845,12 +1851,13 @@ export default {
           ) {
             // console.log('消息非法', chatMessage);
           } else {
+            this.lastChatSentTime = Date.now()
             stompClient.send(
               "/chat",
               {},
               JSON.stringify({
                 content: chatMessage,
-                sendTime: Date.now(),
+                sendTime: this.lastChatSentTime,
               })
             );
           }
@@ -1942,18 +1949,22 @@ export default {
             }
             messageContent.data.images = imgList;
             this.$store.commit("pushChatData", messageContent.data);
-            if (messageContent.data.content !== "投票切歌") {
+            if (messageContent.data.content !== "投票切歌" && messageContent.data.content !== "点歌成功") {
               // var notification = new Notification("猪猪发消息来啦", {
               //   body: messageContent.data.content,
               // });
-              navigator.serviceWorker.register('/sw.js');
-              Notification.requestPermission(function(result) {
-                if (result === "granted") {
-                  navigator.serviceWorker.ready.then(function(registration) {
-                    registration.showNotification("猪猪发消息来啦");
-                  });
-                }
-              });
+              console.log(this.lastChatSentTime)
+              console.log(messageContent.data.sendTime)
+              if(messageContent.data.sendTime !== this.lastChatSentTime) {
+                navigator.serviceWorker.register('/sw.js');
+                Notification.requestPermission(function(result) {
+                  if (result === "granted") {
+                    navigator.serviceWorker.ready.then(function(registration) {
+                      registration.showNotification("猪猪发消息来啦");
+                    });
+                  }
+                });
+              }
             }
             break;
           case messageUtils.messageType.GOODMODEL:
