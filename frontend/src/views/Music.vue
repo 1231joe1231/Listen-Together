@@ -171,20 +171,22 @@
                   听歌房
                 </mu-button>
               </mu-flex>
-              <div style="font-size: 16px; font-weight: 400;">
+              <mu-flex justify-content="between" align-items="center" style="font-size: 16px; font-weight: 400;" class="chat-header">
                 <mu-button flat color="white" @click="houseUser">
                   <mu-icon left value="supervisor_account"></mu-icon>
                   {{ online }}
                 </mu-button>
-                <mu-button
-                  flat
-                  color="white"
-                  @click="clearScr"
-                  style="float:right;"
-                >
-                  <mu-icon left value="clear_all"></mu-icon>
+                <mu-flex align-items="center">
+                  <mu-icon value="notifications"/>
+                  <mu-switch
+                      v-model="enableNotification"
+                      color="primary"
+                  />
+                </mu-flex>
+                <mu-button icon color="normal">
+                  <mu-icon left value="clear_all" @click="clearScr"/>
                 </mu-button>
-              </div>
+              </mu-flex>
               <div id="chat-container" v-on:touchmove="touchWhiteList">
                 <div
                   v-for="(item, index) in chatData"
@@ -1279,6 +1281,7 @@ export default {
   },
   data: () => ({
     isPlay: false,
+    enableNotification: true,
     albumRotate: false,
     screenWidth: document.documentElement.clientWidth,
     columns: document.documentElement.clientWidth < 1200 ? [
@@ -1957,7 +1960,7 @@ export default {
             this.$store.commit("pushChatData", messageContent.data);
             console.log(messageContent.data.content.includes("点歌 "));
             console.log(messageContent.data.content);
-            if (messageContent.data.content !== "投票切歌" && 
+            if (this.enableNotification && messageContent.data.content !== "投票切歌" && 
                 messageContent.data.content !== "点歌成功" &&
                 !messageContent.data.content.includes("点歌 ") &&
                 !messageContent.data.content.includes("点赞")) {
