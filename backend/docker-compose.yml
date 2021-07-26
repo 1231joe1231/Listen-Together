@@ -14,7 +14,7 @@ services:
   service_jusicMusicApi:
     image: jumpalang/jusic_music_api:1.1
     environment:
-      - QQ=1040927107 #qq号
+      - QQ=811370625 #qq号
     container_name: jusicMusicApi
     ports:
       #      - "3000:3000"
